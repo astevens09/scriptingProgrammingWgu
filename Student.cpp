@@ -4,6 +4,7 @@
 
 #include "Student.h"
 #include "Degree.h"
+#include <iostream>
 #include <string>
 
 
@@ -69,4 +70,20 @@ Student::Student(const std::string &studentId, const std::string &firstName, con
     courseDays[0] = daysInCourse1;
     courseDays[1] = daysInCourse2;
     courseDays[2] = daysInCourse3;
+}
+
+void Student::print() {
+    std::string degreeName[3] = {"SECURITY", "NETWORK", "SOFTWARE"};
+
+    std::cout << studentId << "\tFirst Name: " << firstName
+    << "\tLast Name: " << lastName << "\tAge: " << age << "\daysInCourse: {";
+
+    for (int i = 0; i < 3; ++i) {
+        if(i <= 1)
+        std::cout << courseDays[i] << ",";
+        else
+            std::cout << courseDays[i];
+    }
+
+    std::cout << "}" << "\tDegree Program: " << degreeName[degreeProgram];
 }
